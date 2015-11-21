@@ -59,7 +59,7 @@ static uchar    idleRate;   /* repeat rate for keyboards, never used for mice */
 usbMsgLen_t usbFunctionSetup(uchar data[8])
 {
 usbRequest_t    *rq = (void *)data;
-
+	DBG1(0x40, data, 8);
     /* The following requests are never used. But since they are required by
      * the specification, we implement them in this example.
      */
@@ -71,11 +71,11 @@ usbRequest_t    *rq = (void *)data;
             usbMsgPtr = (void *)&reportBuffer;
             return sizeof(reportBuffer);
         }else if(rq->bRequest == USBRQ_HID_GET_IDLE){
-			DBG1(0x52, 0, 1);
+			DBG1(0x52, &idleRate, 1);
             usbMsgPtr = &idleRate;
             return 1;
         }else if(rq->bRequest == USBRQ_HID_SET_IDLE){
-			DBG1(0x53, 0, 1);
+			DBG1(0x53, &rq->wValue.bytes[1], 1);
             idleRate = rq->wValue.bytes[1];
         }
     }else{
