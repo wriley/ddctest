@@ -56,28 +56,8 @@ PROGMEM const char usbHidReportDescriptor[22] = {   /* USB report descriptor */
 usbMsgLen_t usbFunctionSetup(uchar data[8])
 {
 usbRequest_t    *rq = (void *)data;
-
-    if((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_VENDOR){
-        DBG1(0x50, &rq->bRequest, 1);   /* debug output: print our request */
-        if(rq->bRequest == CUSTOM_RQ_SET_STATUS){
-            if(rq->wValue.bytes[0] & 1){    /* set LED */
-                LED_PORT_OUTPUT |= _BV(LED_BIT);
-            }else{                          /* clear LED */
-                LED_PORT_OUTPUT &= ~_BV(LED_BIT);
-            }
-        }else if(rq->bRequest == CUSTOM_RQ_GET_STATUS){
-            static uchar dataBuffer[1];     /* buffer must stay valid when usbFunctionSetup returns */
-            dataBuffer[0] = ((LED_PORT_OUTPUT & _BV(LED_BIT)) != 0);
-            usbMsgPtr = dataBuffer;         /* tell the driver which data to return */
-            return 1;                       /* tell the driver to send 1 byte */
-        }
-    }else{
-        /* calss requests USBRQ_HID_GET_REPORT and USBRQ_HID_SET_REPORT are
-         * not implemented since we never call them. The operating system
-         * won't call them either because our descriptor defines no meaning.
-         */
-    }
-    return 0;   /* default for not implemented requests: return no data back to host */
+	DBG1(0x40, data, 8);
+    return 0;
 }
 
 /* ------------------------------------------------------------------------- */
