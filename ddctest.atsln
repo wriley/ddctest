@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ddctest", "ddctest\ddctest.cproj", "{E0B0A429-7C4E-4092-980F-9ABB54ABDE71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B0A429-7C4E-4092-980F-9ABB54ABDE71}.Debug|AVR.ActiveCfg = Debug|AVR
+		{E0B0A429-7C4E-4092-980F-9ABB54ABDE71}.Debug|AVR.Build.0 = Debug|AVR
+		{E0B0A429-7C4E-4092-980F-9ABB54ABDE71}.Release|AVR.ActiveCfg = Release|AVR
+		{E0B0A429-7C4E-4092-980F-9ABB54ABDE71}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
