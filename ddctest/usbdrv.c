@@ -113,7 +113,7 @@ PROGMEM const char usbDescriptorDevice[] = {    /* USB device descriptor */
     USB_CFG_DEVICE_CLASS,
     USB_CFG_DEVICE_SUBCLASS,
     0,                      /* protocol */
-    64,                      /* max packet size */
+    8,                      /* max packet size */
     /* the following two casts affect the first byte of the constant only, but
      * that's sufficient to avoid a warning with the default values.
      */
@@ -176,7 +176,7 @@ PROGMEM const char usbDescriptorConfiguration[] = {    /* USB configuration desc
     USBDESCR_ENDPOINT,  /* descriptor type = endpoint */
     (char)0x81, /* IN endpoint number 1 */
     0x03,       /* attrib: Interrupt endpoint */
-    10, 0,       /* maximum packet size */
+    8, 0,       /* maximum packet size */
     USB_CFG_INTR_POLL_INTERVAL, /* in ms */
 #endif
 #if USB_CFG_HAVE_INTRIN_ENDPOINT3   /* endpoint descriptor for endpoint 3 */
